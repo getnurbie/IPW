@@ -209,3 +209,31 @@ header{
 		#characters .container tr:nth-child(even){
 			background-color: #dddddd;
 		}
+
+	
+#loginForm .container h2{
+	font-size: 30px;
+}
+
+.button{
+	background-color: #f4f4f4;
+	color: fcb84b; /* Green */
+	border: none;
+	padding: 15px 32px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	border-radius: 7%;
+	cursor: pointer;
+}
+
+.loginInput{
+	border:none;
+	height: 4%;
+	text-align: center;
+}
+
+#registerForm .container h2{
+		font-size: 30px;
+}

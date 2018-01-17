@@ -38,6 +38,29 @@ class DataAccess{
 		mysqli_close($this->connection);
     }
 	
+	   
+    function login($email, $password){
+        $query = "select *
+					from utilizadores 
+					where email = '$email' and 
+					password = '$password'";
+        $this->connect();
+        $res = $this->execute($query);
+        $this->disconnect();
+        return $res;
+    }
+	
+	function inserirUtilizador($nome, $email,
+							$password){
+		$query = "insert into utilizadores 
+					(nome, email, password)
+					values 
+					('$nome','$email','$password')";
+		$this->connect();
+        $this->execute($query);
+        $this->disconnect();
+	}
+	
 	function getGuessWho(){
 		$this->connect();
 		$sql = "select * from guesswho";

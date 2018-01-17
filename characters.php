@@ -1,4 +1,6 @@
-<!doctype html>
+<?php
+	session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -18,11 +20,19 @@
 				</div>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li class="selecionado"><a href="characters.html">Characters</a></li>
-						<li><a href="episodes.html">Episodes</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="about.php">About</a></li>
+						<li class="selecionado"><a href="characters.php">Characters</a></li>
+						<li><a href="episodes.php">Episodes</a></li>
 						<li><a href="games.php">Games</a></li>
+						<?php 
+							if (!isset($_SESSION['id'])){
+								echo"<li><a href='register.php'>Login/Register</a></li>";
+							}
+							else{
+								echo"<li><a href='logout.php'>Logout</a></li>";
+							}
+						?>
 					</ul>
 				</nav>
 			</div>
@@ -32,7 +42,7 @@
 				<!-- Lauren -->
 				<div style="width: 45%; float: left;">
 					<div style="width:25%; float: left;">
-						<img alt="Lauren" src="images/lauren.jpg" width="100%" height="40%">
+						<img alt="Lauren" src="images/lauren.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Lauren Strucker</p>
@@ -46,7 +56,7 @@
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
 							<div>
-								 <p><img alt="Lauren" src="images/lauren.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								 <p><img alt="Lauren" src="images/lauren.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -72,7 +82,7 @@
 				<!-- Andy -->
 				<div style="width: 45%; float: left;">
 					<div style="width:25%; float: left;">
-						<img alt="Andy" src="images/andy.jpg" width="100%" height="40%">
+						<img alt="Andy" src="images/andy.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Andy Strucker</p>
@@ -85,7 +95,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Andy" src="images/andy.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Andy" src="images/andy.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -107,7 +117,7 @@
 				<!-- Caitlin -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Caitlin" src="images/caitlin.jpg" width="100%" height="40%">
+						<img alt="Caitlin" src="images/caitlin.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Caitlin Strucker</p>
@@ -120,7 +130,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Caitlin" src="images/caitlin.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Caitlin" src="images/caitlin.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -145,7 +155,7 @@
 				<!-- Reed -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Reed" src="images/reed.jpg" width="100%" height="40%">
+						<img alt="Reed" src="images/reed.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Reed Strucker</p>
@@ -158,7 +168,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Reed" src="images/reed.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Reed" src="images/reed.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -183,7 +193,7 @@
 				<!-- Lorna/Polaris -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Lorna" src="images/lorna.jpg" width="100%" height="40%">
+						<img alt="Lorna" src="images/lorna.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Lorna Dane/Polaris</p>
@@ -196,7 +206,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Lorna" src="images/lorna.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Lorna" src="images/lorna.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -221,7 +231,7 @@
 				<!-- Marcos/Eclipse -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Marcos" src="images/marcos.jpg" width="100%" height="40%">
+						<img alt="Marcos" src="images/marcos.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Marcos Diaz/Eclipse</p>
@@ -234,7 +244,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Marcos" src="images/marcos.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Marcos" src="images/marcos.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -259,7 +269,7 @@
 				<!-- Sonya/Dreamer -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Dreamer" src="images/dreamer.jpg" width="100%" height="40%">
+						<img alt="Dreamer" src="images/dreamer.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Sonya Simonson/Dreamer</p>
@@ -272,7 +282,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Dreamer" src="images/dreamer.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Dreamer" src="images/dreamer.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -301,7 +311,7 @@
 				<!-- John/Thunderbird -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="John" src="images/john.jpg" width="100%" height="40%">
+						<img alt="John" src="images/john.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>John Proudstar/Thunderbird</p>
@@ -314,7 +324,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="John" src="images/john.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="John" src="images/john.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -339,7 +349,7 @@
 				<!-- Clarice/Blink -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Blink" src="images/blink.jpg" width="100%" height="40%">
+						<img alt="Blink" src="images/blink.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Clarice Fong/Blink</p>
@@ -352,7 +362,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Blink" src="images/blink.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Blink" src="images/blink.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -377,7 +387,7 @@
 				<!-- Jace -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Jace" src="images/jace.png" width="100%" height="40%">
+						<img alt="Jace" src="images/jace.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Jace Turner</p>
@@ -390,7 +400,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Jace" src="images/jace.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Jace" src="images/jace.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -415,7 +425,7 @@
 				<!-- Carmen -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Carmen" src="images/carmen.png" width="100%" height="40%">
+						<img alt="Carmen" src="images/carmen.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Carmen Guerra</p>
@@ -428,7 +438,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Carmen" src="images/carmen.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Carmen" src="images/carmen.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -450,7 +460,7 @@
 				<!-- Pulse -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Pulse" src="images/pulse.png" width="100%" height="40%">
+						<img alt="Pulse" src="images/pulse.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Augustus/Pulse</p>
@@ -463,7 +473,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Pulse" src="images/pulse.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Pulse" src="images/pulse.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -489,7 +499,7 @@
 				<!-- Esme -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Esme" src="images/esme.png" width="100%" height="40%">
+						<img alt="Esme" src="images/esme.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Esme Frost</p>
@@ -502,7 +512,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Esme" src="images/esme.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Esme" src="images/esme.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -527,7 +537,7 @@
 				<!-- Wes -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Wes" src="images/wes.png" width="100%" height="40%">
+						<img alt="Wes" src="images/wes.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Wes</p>
@@ -540,7 +550,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Wes" src="images/wes.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Wes" src="images/wes.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -562,7 +572,7 @@
 				<!-- Sage -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Sage" src="images/sage.png" width="100%" height="40%">
+						<img alt="Sage" src="images/sage.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Sage</p>
@@ -575,7 +585,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Sage" src="images/sage.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Sage" src="images/sage.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -600,7 +610,7 @@
 				<!-- Shatter -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Shatter" src="images/shatter.png" width="100%" height="40%">
+						<img alt="Shatter" src="images/shatter.png" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Shatter</p>
@@ -613,7 +623,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Shatter" src="images/shatter.png" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Shatter" src="images/shatter.png" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>
@@ -639,7 +649,7 @@
 				<!-- Campbell -->
 				<div style="width: 45%; float: left; margin-top: 5%;">
 					<div style="width:25%; float: left;">
-						<img alt="Dr.Campbell" src="images/campbell.jpg" width="100%" height="40%">
+						<img alt="Dr.Campbell" src="images/campbell.jpg" width="100%" height="35%">
 					</div>
 					<div style="width:73%; float: right;">
 						<p><b>Name: </b>Roderick Campbell</p>
@@ -652,7 +662,7 @@
 						  <!-- Modal content -->
 						  <div class="modal-content" style="width: 50%;">
 							<span class="close">&times;</span>
-								<p><img alt="Dr.Campbell" src="images/campbell.jpg" width="50%" height="20%" style="float: left; margin-right: 5%; width:20%;">
+								<p><img alt="Dr.Campbell" src="images/campbell.jpg" height="30%" style="float: left; margin-right: 5%; width:20%;">
 									<h3>Series Information</h3>
 									<table>
 										 <tr>

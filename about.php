@@ -1,4 +1,7 @@
-<!doctype html>
+<?php 
+	session_start();
+?>
+<meta charset="utf-8">
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -18,11 +21,19 @@
 				</div>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li class="selecionado"><a href="about.html">About</a></li>
-						<li><a href="characters.html">Characters</a></li>
-						<li><a href="episodes.html">Episodes</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li class="selecionado"><a href="about.php">About</a></li>
+						<li><a href="characters.php">Characters</a></li>
+						<li><a href="episodes.php">Episodes</a></li>
 						<li><a href="games.php">Games</a></li>
+						<?php 
+							if (!isset($_SESSION['id'])){
+								echo"<li><a href='register.php'>Login/Register</a></li>";
+							}
+							else{
+								echo"<li><a href='logout.php'>Logout</a></li>";
+							}
+						?>
 					</ul>
 				</nav>
 			</div>
