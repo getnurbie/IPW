@@ -20,8 +20,8 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="characters.html">Characters</a></li>
-						<li><a href="#">Episodes</a></li>
-						<li class="selecionado"><a href="#">Games</a></li>
+						<li><a href="episodes.html">Episodes</a></li>
+						<li class="selecionado"><a href="games.php">Games</a></li>
 					</ul>
 				</nav>
 			</div>

@@ -135,27 +135,11 @@ header{
 	margin-left:auto;
 }
 
-#episode1 {
-	margin-left: 10%;
-	float: left;
-}
-
-#promo1  {
-	height: 600px;
-	width: 100%;
+#promo  {
+	height: 250px;
 	margin: 0;
 	padding: 0;
 	border-style: none;
-}
-		
-#episode2 {
-	float: right;
-	margin-right: 10%;
-}
-		
-#episode3 {
-	margin-left: 10%;
-	float: left;
 }
 
 .modal {
