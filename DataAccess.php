@@ -61,6 +61,47 @@ class DataAccess{
         $this->disconnect();
 	}
 	
+	function editarPerfilUtilizador($id, $nome, $email){
+		$query = "update utilizadores 
+						set	
+						nome = '$nome',
+						email = '$email'
+						where id = '$id'";
+		//echo $query;
+		$this->connect();
+        $this->execute($query);
+        $this->disconnect();
+	}
+	
+	function editarPasswordUtilizador($id, $oldPassword, $newPassword){
+		//pesquisa - verificar se a password antiga está correta
+		$query = "select password from utilizadores where id = '$id' ";
+		$this->connect();
+        $res = $this->execute($query);
+        $row = mysqli_fetch_object($res);
+		$erro = false;
+		if ($oldPassword == $row->password){
+			//se estiver correta, edita-a para a nova pwd
+			$query = "update utilizadores set
+							password  = '$newPassword'
+							where id = $id";
+			$this->execute($query);			
+		}else{
+			//else - dá erro!	
+			$erro = true;
+		}
+		$this->disconnect();
+		return $erro;
+	}
+	
+	function getUtilizador($id){
+		$query = "select * from utilizadores where id = '$id'";
+		$this->connect();
+        $res = $this->execute($query);
+		$this->disconnect();
+		return $res;
+	}
+	
 	function getGuessWho(){
 		$this->connect();
 		$sql = "select * from guesswho";

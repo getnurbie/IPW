@@ -31,6 +31,7 @@
 								echo"<li><a href='register.php'>Login/Register</a></li>";
 							}
 							else{
+								echo"<li><a href='profile.php'>Profile</a></li>";
 								echo"<li><a href='logout.php'>Logout</a></li>";
 							}
 						?>

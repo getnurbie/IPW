@@ -21,7 +21,7 @@ session_start();
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 
-		<title>About</title>
+		<title>Login/Register</title>
 
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 
@@ -67,14 +67,14 @@ session_start();
 						<li><a href="characters.php">Characters</a></li>
 						<li><a href="episodes.php">Episodes</a></li>
 						<li><a href="games.php">Games</a></li>
-						<li><a href="register.php">Login/Register</a></li>
+						<li class="selecionado"><a href="register.php">Login/Register</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 	<section id="loginForm">
 		<div class="container" id="Login" style="width: 100%; overflow: hidden; margin-left: 2%; margin-top: 5%;">
-			<div style="width: 45%; float: left;" id="Login" class="FormLogin">
+			<div style="width: 45%; float: left;" id="Login">
 				<form method='post' action='login.php'>
 					<h2 align="center">Login</h2>
 					<div style="width:45%; float: left;" align="center">
@@ -118,29 +118,4 @@ session_start();
 			</div>
 		</div>
 	</section>
-	<!--
-		<form method='post' action='register.php'>
-		<div style='width:15%; position:absolute; left:5%; top:30%;' id="Register" >
-			<h2>Register</h2>
-		<br><h6>Name</h6>
-			<input placeholder="Name" type="Text" name="name" id="name" required>
-		</div>
-		</div>
-		<div style='width:15%; position:absolute; left:25%; top:43%;' id="Register" >
-			<h6>Email</h6>
-			<input placeholder="Email" type="Text" name="email" id="email" required>
-		</div>
-		<div style='width:15%; position:absolute; left:5%; top:55%;' id="Register" >
-			<h6>Password</h6>
-			<input placeholder="Password" type="password" name="password" id="password" required>
-		</div>
-		<div style='width:15%; position:absolute; left:25%; top:55%;' id="Register" >
-			<h6>Repit password</h6>
-			<input placeholder="Repetir password" type="password" name="password1" id="password1" required>
-		</div>
-		<div style='width:15%; position:absolute; left:19.5%; top:69%;' id="Register" >
-					 Ao clicarmos no botão Registar o programa vão ver se as passwords estão coincidem e vai ver se o email está de forma correta 
-					<input class='medium button' type='submit' value='Registar' name='btRegister' id='btRegister' onclick='return validarFormulario()'>
-				</div>
-	</form>-->
 </div>
