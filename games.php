@@ -40,91 +40,373 @@
 		</header>
 		<section id="audio">
 			<div class="container">
-				<!--<div>Iteration: <span id="iteration"></span></div>
-					<audio controls id="myAudio">
-					  <source src="audio/teste.mp3" type="audio/mpeg">
-					Your browser does not support the audio element.
-					</audio>
-					<input type="text" name="guessWhoAnswer" id="guessWhoAnswer"><input type="button" onClick="verifyAnswer()" value="Ok">
+				<button id="myBtn" class="button">AudioQuiz</button>
+				<div id="myModal" class="modal">
 
-				<div>Time left:</div>
-				<div id="count"></div>-->
-			
-			<?php
-				include_once('DataAccess.php');
-				$da = new DataAccess();
-				$res = $da->getGuessWho();
-				$row = mysqli_fetch_object($res);
-			/*$res1 = $da->getGuessWhoAnswer();
-			$guessWhoAnswer = $_POST['guessWhoAnswer'];
-			if (mysqli_num_rows($res1) > 0) {
-			$row1 = mysqli_fetch_object($res1);
-				
-			}*/
-			echo 
-				"<audio controls id='myAudio'>
-					  <source src='$res[guessWhoPath]' type='audio/mpeg'>
-					</audio>";
-					/*<input type='text' name='guessWhoAnswer' id='guessWhoAnswer'><input type='button' onClick='verifyAnswer()' value='Ok'>*/
-			?>
-			</div>
-			<script>
+				  <!-- Modal content -->
+				  <div class="modal-content">
+					<span class="close">&times;</span>
+					<?php
+						include_once('DataAccess.php');
+						$da = new DataAccess();
+						$res = $da->getGuessWho(rand (1, 127));
+					  	$row = mysqli_fetch_object($res);
+					  	$res2 = $da->getGuessWho(rand (1, 127));
+					  	$row2 = mysqli_fetch_object($res2);
+					  	$res3 = $da->getGuessWho(rand (1, 127));
+					  	$row3 = mysqli_fetch_object($res3);
+					  	$res4 = $da->getGuessWho(rand (1, 127));
+					  	$row4 = mysqli_fetch_object($res4);
+					  	$res5 = $da->getGuessWho(rand (1, 127));
+					  	$row5 = mysqli_fetch_object($res5);
+					  	$res6 = $da->getGuessWho(rand (1, 127));
+					  	$row6 = mysqli_fetch_object($res6);
+					  	$res7 = $da->getGuessWho(rand (1, 127));
+					  	$row7 = mysqli_fetch_object($res7);
+					  	$res8 = $da->getGuessWho(rand (1, 127));
+					  	$row8 = mysqli_fetch_object($res8);
+					  	$res9 = $da->getGuessWho(rand (1, 127));
+					  	$row9 = mysqli_fetch_object($res9);
+					  	$res10 = $da->getGuessWho(rand (1, 127));
+					  	$row10 = mysqli_fetch_object($res10);
+					?>
+					  <div>Time left:</div>
+						<div id='count'></div>
+						<div align='center' style='margin-top:3%; margin-bottom:3%;'>Iteration: <span id='iteration'></span></div>
+							<div align='center' style='margin-top:3%; margin-bottom:3%;'>
+							<img src='img/thegifted.jpg' style='width:30%;'>
+							</div>
+							<div align='center' style='margin-top:5%; margin-bottom:3%;'>
+							<audio controls id='myAudio' style="display: block;">
+							  <source src='<?php echo $row->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio2' style="display: none;">
+							  <source src='<?php echo $row2->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio3' style="display: none;">
+							  <source src='<?php echo $row3->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio4' style="display: none;">
+							  <source src='<?php echo $row4->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio5' style="display: none;">
+							  <source src='<?php echo $row5->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio6' style="display: none;">
+							  <source src='<?php echo $row6->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio7' style="display: none;">
+							  <source src='<?php echo $row7->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio8' style="display: none;">
+							  <source src='<?php echo $row8->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio9' style="display: none;">
+							  <source src='<?php echo $row9->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							<audio controls id='myAudio10' style="display: none;">
+							  <source src='<?php echo $row10->guessWhoPath; ?>' type='audio/mpeg'>
+							</audio>
+							</div>
+							<div align='center' style='margin-top:3%; margin-bottom:3%; margin-left:6%;'>
+							<input class='loginInput' type='text' name='guessWhoAnswer' id='guessWhoAnswer'><input class='button' type='button' onClick='verifyAnswer()' value='Ok'>
+							</div>
+					</div>
+				  </div>
+
+				</div>
+				<script>
+				// Get the modal
+				var modal = document.getElementById('myModal');
+
+				// Get the button that opens the modal
+				var btn = document.getElementById("myBtn");
+
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+
+				// When the user clicks the button, open the modal 
+				btn.onclick = function() {
+					modal.style.display = "block";
+					restart();
+				}
+
+				// When the user clicks on <span> (x), close the modal
+				span.onclick = function() {
+					modal.style.display = "none";
+					window.location.reload(true); 
+				}
+
+				// When the user clicks anywhere outside of the modal, close it
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
+				}
+				let countdown = 15;
 				var score;
+				var iterations = 0;
+					
+				function restart(){
+					document.getElementById('iteration').innerText = iterations;
+				
+					myAudio.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio2.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio3.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio4.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio5.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio6.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio7.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio8.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio9.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+					myAudio10.addEventListener('ended', function () {
+						setTimeout(function(){
+							audio.pause();
+							alert("Audio Stop Successfully");
+						},
+						5000);
+						if (iterations < countdown) {
+
+							this.currentTime = 0;
+							iterations ++;
+
+							document.getElementById('iteration').innerText = iterations;
+
+						}
+					}, false);
+
+
+					let interval = setInterval(function() {
+					  countdown -= 1;
+					  document.getElementById("count").innerHTML = countdown;
+					  if (countdown <= 0) {
+						document.getElementById("myAudio").pause();
+						//clearInterval(interval);
+						  changeAudio();
+					  }
+					}, 1000);
+				}
+				
+				var p = <?php echo json_encode($row->guessWhoAnswer)?>;
 				function score(){
-					score = 100;
+					score = 0;
 				}
 				function verifyAnswer(){
 					var value;
 					var audioAnswer = document.getElementById('guessWhoAnswer');
 					alert(audioAnswer.value);
-					var audio = 'beck';
 					if(audioAnswer.value === ''){
 						alert('You need to answer!');
 					}
-					else if(audioAnswer.value === audio){
+					else if(audioAnswer.value === p){
 						alert('Right Answer!');
-						alert(score);
+						if(iterations == 1 || iterations == 0){
+							score+=20;
+							alert(score);
+							changeAudio();
+						}
+						else if(iterations == 2){
+							score+=15;
+							alert(score);
+							changeAudio();
+						}
+						else if(iterations == 3){
+							score+=10;
+							alert(score);
+							changeAudio();
+						}
+						else{
+							alert(score);
+							changeAudio();
+						}
 					}
 					else{
 						alert('Wrong Answer');
-						value = score - 10;
-						alert(value);
+						score-=10;
+						alert(score);
 						
 					}
 				}
-				var iterations = 1;
-
-                document.getElementById('iteration').innerText = iterations;
-				
-                myAudio.addEventListener('ended', function () {
-					setTimeout(function(){
-						audio.pause();
-						alert("Audio Stop Successfully");
-					},
-					5000);
-                    if (iterations < countdown) {
-
-                        this.currentTime = 0;
-                        iterations ++;
-
-                        document.getElementById('iteration').innerText = iterations;
-
-                    }
-                }, false);
-				
-				let countdown = 15;
-
-				document.getElementById("myAudio").play();
-
-				let interval = setInterval(function() {
-				  countdown -= 1;
-				  document.getElementById("count").innerHTML = countdown;
-				  if (countdown <= 0) {
-					document.getElementById("myAudio").pause();
-					clearInterval(interval);
-				  }
-				}, 1000);
-				
+				function changeAudio(){
+					countdown = 15;
+					iterations = 0;
+					document.getElementById('iteration').innerText = iterations;
+					
+					if(document.getElementById('myAudio').style.display == "block"){
+					   		p = <?php echo json_encode($row2->guessWhoAnswer)?>;
+							document.getElementById('myAudio').style.display = "none";
+							document.getElementById('myAudio2').style.display = "block";
+					   }
+					else if(document.getElementById('myAudio2').style.display == "block"){
+							p = <?php echo json_encode($row3->guessWhoAnswer)?>;
+							document.getElementById('myAudio2').style.display = "none";
+							document.getElementById('myAudio3').style.display = "block";
+					}
+					else if(document.getElementById('myAudio3').style.display == "block"){
+					   		p = <?php echo json_encode($row4->guessWhoAnswer)?>;
+							document.getElementById('myAudio3').style.display = "none";
+							document.getElementById('myAudio4').style.display = "block";
+					   }
+					else if(document.getElementById('myAudio4').style.display == "block"){
+							p = <?php echo json_encode($row5->guessWhoAnswer)?>;
+							document.getElementById('myAudio4').style.display = "none";
+							document.getElementById('myAudio5').style.display = "block";
+					}
+					else if(document.getElementById('myAudio5').style.display == "block"){
+					   		p = <?php echo json_encode($row6->guessWhoAnswer)?>;
+							document.getElementById('myAudio5').style.display = "none";
+							document.getElementById('myAudio6').style.display = "block";
+					   }
+					else if(document.getElementById('myAudio6').style.display == "block"){
+							p = <?php echo json_encode($row7->guessWhoAnswer)?>;
+							document.getElementById('myAudio6').style.display = "none";
+							document.getElementById('myAudio7').style.display = "block";
+					}
+					else if(document.getElementById('myAudio7').style.display == "block"){
+					   		p = <?php echo json_encode($row8->guessWhoAnswer)?>;
+							document.getElementById('myAudio7').style.display = "none";
+							document.getElementById('myAudio8').style.display = "block";
+					   }
+					else if(document.getElementById('myAudio8').style.display == "block"){
+						p = <?php echo json_encode($row9->guessWhoAnswer)?>;
+							document.getElementById('myAudio8').style.display = "none";
+							document.getElementById('myAudio9').style.display = "block";
+					}
+					else if(document.getElementById('myAudio9').style.display == "block"){
+					   		p = <?php echo json_encode($row10->guessWhoAnswer)?>;
+							document.getElementById('myAudio9').style.display = "none";
+							document.getElementById('myAudio10').style.display = "block";
+					   }
+					else if(document.getElementById('myAudio10').style.display == "block"){
+						window.location.reload(true);
+					}
+				}
 			</script>
 		</section>
 		

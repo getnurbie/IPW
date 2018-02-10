@@ -102,18 +102,18 @@ class DataAccess{
 		return $res;
 	}
 	
-	function getGuessWho(){
-		$this->connect();
-		$sql = "select * from guesswho";
+	function getGuessWho($id){
+		/*$this->connect();
+		$sql = "select * from guesswho where guessWhoID = '$id'";
 		$result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
-            $res= mysqli_fetch_array($result);
+            $res= mysqli_fetch_object($result);
+			
         }
-		$this->disconnect();
-		return $res;
-	}
-	function getGuessWhoAnswer(){
-		$query = "select guessWhoAnswer from guesswho";
+		else{
+			echo"Nothing";
+		}*/
+		$query = "select * from guesswho where guessWhoID = '$id'";
 		$this->connect();
         $res = $this->execute($query);
 		$this->disconnect();
