@@ -40,7 +40,7 @@
 		</header>
 		<section id="audio">
 			<div class="container">
-				<button id="myBtn" class="button">AudioQuiz</button>
+				<center><button id="myBtn" class="button"></button></center>
 				<div id="myModal" class="modal">
 
 				  <!-- Modal content -->

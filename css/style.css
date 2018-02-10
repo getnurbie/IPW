@@ -237,3 +237,10 @@ header{
 #profileForm .container h2{
 	font-size: 30px;
 }
+
+#audio .container button{
+	background: url(../img/image.jpeg) no-repeat;
+	background-size: 100%; /* To fill the dimensions of container (button), or */
+	width: 50%;
+	height: 45%;
+}
